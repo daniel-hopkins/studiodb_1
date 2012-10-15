@@ -1,0 +1,23 @@
+#studiodb {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.btn-add-client {
+	margin-top: -8px;
+}
+
+p.reference-name{
+	width: 300px;
+	padding: 20px;
+	@include border-radius(10px);
+	border: 1px solid #ddd;
+	font-size: 1.2em;
+}
+.table-clients{
+	width: 600px;
+	margin: 0 auto;
+	.table-action-col{
+		width: 30px;
+	}
+}

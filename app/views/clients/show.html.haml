@@ -1,0 +1,11 @@
+= link_to("back", {action: 'list'}, class: 'back')
+
+.client.show
+	%h2 Show Client
+
+	%table.table.table-condensed
+		%tbody
+			%tr
+				%td Name
+				%td 
+					= @client.name

@@ -1,0 +1,6 @@
+%h3
+	Update Client
+= form_for(:client, :url => {:action => "update", id: @client.id}) do |f|
+	= f.text_field(:name)
+
+	= submit_tag("Update Client")

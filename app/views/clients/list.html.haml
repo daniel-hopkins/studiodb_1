@@ -1,0 +1,19 @@
+%table.table.table-condensed.table-striped.table-clients
+	%thead
+		%tr
+			%td 
+				%h4 Clients
+			%td{:colspan => "2"} 
+				%a.btn.btn-small.pull-right{:href => "/clients/new"} 
+					New Client
+	%tbody
+		- @clients.each do |client|
+			%tr
+				%td 
+					= client.name
+				-# %td.table-action-col
+					= link_to("Show", {action: 'show', id:client.id}, class: "btn btn-mini")
+				%td.table-action-col
+					= link_to("Edit", {action: 'edit', id: client.id}, class: "btn btn-mini")
+				%td.table-action-col
+					= link_to("Delete", {action: 'delete', id: client.id}, class: "btn btn-mini")
