@@ -37,8 +37,8 @@ class ClientsController < ApplicationController
 		@client = Client.find(params[:id])
 		if @client.update_attributes(params[:client])
 			# if update succeeds
-			flash[:success] = "client updated"
-			redirect_to(:action => 'show', :id => @client.id)
+			flash[:notice] = "client updated"
+			redirect_to(:action => 'list', :id => @client.id)
 		else
 			#if update fails, redisplay form so the user can fix problems
 			render('edit')

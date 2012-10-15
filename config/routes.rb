@@ -1,4 +1,26 @@
 Studiodb::Application.routes.draw do
+  get "jobs/list"
+
+  get "jobs/show"
+
+  get "jobs/new"
+
+  get "jobs/delete"
+
+  get "shots/list"
+
+  get "shots/show"
+
+  get "shots/new"
+
+  get "shots/delete"
+
+  get "list/show"
+
+  get "list/new"
+
+  get "list/delete"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,7 @@
 %h3
 	Update Client
 = form_for(:client, :url => {:action => "update", id: @client.id}) do |f|
-	= f.text_field(:name)
+	
+	= render(:partial => "form", :locals => {:f => f})
 
-	= submit_tag("Update Client")
+	= submit_tag("Update Client", class: "btn btn-medium btn-edit-client")
