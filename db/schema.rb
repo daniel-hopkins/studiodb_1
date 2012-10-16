@@ -40,8 +40,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "webAddress",   :limit => 75, :default => "http://192.168.1.108/studioDb/jpegs/", :null => false
   end
 
-  create_table "shots", :id => false, :force => true do |t|
-    t.integer "id",                                                :null => false
+  create_table "shots", :force => true do |t|
     t.integer "job_id",                    :default => 0,          :null => false
     t.string  "date",       :limit => 50,  :default => "",         :null => false
     t.string  "name",       :limit => 250, :default => "",         :null => false
@@ -53,12 +52,12 @@ ActiveRecord::Schema.define(:version => 0) do
     t.date    "updated_at"
   end
 
-  create_table "users_usr", :primary_key => "id_usr", :force => true do |t|
-    t.string  "username_usr", :limit => 50, :default => "",    :null => false
-    t.string  "password_usr", :limit => 50, :default => "",    :null => false
-    t.string  "email_usr",    :limit => 50, :default => "",    :null => false
-    t.boolean "active_usr",                 :default => false, :null => false
-    t.boolean "level_usr",                  :default => false, :null => false
+  create_table "users", :force => true do |t|
+    t.string  "username", :limit => 50, :default => "",    :null => false
+    t.string  "password", :limit => 50, :default => "",    :null => false
+    t.string  "email",    :limit => 50, :default => "",    :null => false
+    t.boolean "active",                 :default => false, :null => false
+    t.boolean "level",                  :default => false, :null => false
   end
 
 end
