@@ -1,2 +1,14 @@
-%h1 Jobs#show
-%p Find me in app/views/jobs/show.html.haml
+.row-fluid
+	.span6
+		.invoice-number
+			- if @job.invoiceNumber?
+				= @job.invoiceNumber
+			- else
+				not yet invoiced
+		.job-date
+			= @job.date
+		.job-name
+			= @job.name
+		
+		
+	.span6

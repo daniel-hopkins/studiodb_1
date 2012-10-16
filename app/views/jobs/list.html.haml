@@ -1,2 +1,19 @@
-%h1 Jobs#list
-%p Find me in app/views/jobs/list.html.haml
+%table.table.table-condensed.table-striped.table-jobs
+	%thead
+		%tr
+			%td 
+				%h4 Jobs
+			%td{:colspan => "3"} 
+				%a.btn.btn-small.pull-right{:href => "/jobs/new"} 
+					New Job
+	%tbody
+		- @jobs.each do |job|
+			%tr
+				%td 
+					= job.name
+				%td.table-action-col
+					= link_to("Show", {action: 'show', id:job.id}, class: "btn btn-mini")
+				%td.table-action-col
+					= link_to("Edit", {action: 'edit', id:job.id}, class: "btn btn-mini")
+				%td.table-action-col
+					= link_to("Delete", {action: 'delete', id:job.id}, class: "btn btn-mini")

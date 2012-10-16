@@ -17,23 +17,22 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "name", :limit => 35, :default => "", :null => false
   end
 
-  create_table "jobs_job", :id => false, :force => true do |t|
-    t.integer "id_job",                                                  :null => false
-    t.string  "name_job",          :limit => 100, :default => "",        :null => false
-    t.string  "date_job",          :limit => 50,  :default => "",        :null => false
-    t.integer "idclt_job",                        :default => 0,         :null => false
-    t.text    "notes_job"
-    t.string  "folder_job",        :limit => 100, :default => "folder/", :null => false
-    t.integer "invoiced_job",                     :default => 0
-    t.string  "invoiceNumber_job", :limit => 15
-    t.string  "tifHD_job",         :limit => 15,  :default => "",        :null => false
-    t.string  "rawHD_job",         :limit => 15,  :default => "",        :null => false
-    t.string  "extras_job",        :limit => 250
-    t.boolean "oldJob_job",                       :default => false,     :null => false
-    t.boolean "public_job",                       :default => false,     :null => false
+  create_table "jobs", :force => true do |t|
+    t.string  "name",          :limit => 100, :default => "",        :null => false
+    t.string  "date",          :limit => 50,  :default => "",        :null => false
+    t.integer "client_id",                    :default => 0,         :null => false
+    t.text    "notes"
+    t.string  "folder",        :limit => 100, :default => "folder/", :null => false
+    t.integer "invoiced",                     :default => 0
+    t.string  "invoiceNumber", :limit => 15
+    t.string  "tifHD",         :limit => 15,  :default => "",        :null => false
+    t.string  "rawHD",         :limit => 15,  :default => "",        :null => false
+    t.string  "extras",        :limit => 250
+    t.boolean "oldJob",                       :default => false,     :null => false
+    t.boolean "public",                       :default => false,     :null => false
+    t.date    "created_at"
+    t.date    "updated_at"
   end
-
-  add_index "jobs_job", ["id_job"], :name => "jobID", :unique => true
 
   create_table "settings", :id => false, :force => true do |t|
     t.string "currentTifHD", :limit => 8,  :default => "",                                     :null => false
@@ -41,21 +40,18 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "webAddress",   :limit => 75, :default => "http://192.168.1.108/studioDb/jpegs/", :null => false
   end
 
-  create_table "shots_sht", :id => false, :force => true do |t|
-    t.integer "id_sht",                                                     :null => false
-    t.integer "idjob_sht",                          :default => 0,          :null => false
-    t.string  "date_sht",            :limit => 50,  :default => "",         :null => false
-    t.string  "hondaShotName",       :limit => 20
-    t.string  "description_sht",     :limit => 250, :default => "",         :null => false
-    t.string  "tonalRange_sht",      :limit => 20
-    t.string  "graduationCurve_sht", :limit => 20
-    t.string  "lens_sht",            :limit => 20
-    t.string  "image_sht",           :limit => 100, :default => "fileName"
-    t.text    "notes_sht"
-    t.boolean "printed_sht",                        :default => false,      :null => false
+  create_table "shots", :id => false, :force => true do |t|
+    t.integer "id",                                                :null => false
+    t.integer "job_id",                    :default => 0,          :null => false
+    t.string  "date",       :limit => 50,  :default => "",         :null => false
+    t.string  "name",       :limit => 250, :default => "",         :null => false
+    t.string  "lens",       :limit => 20
+    t.string  "image",      :limit => 100, :default => "fileName"
+    t.text    "notes"
+    t.boolean "printed",                   :default => false,      :null => false
+    t.date    "created_at"
+    t.date    "updated_at"
   end
-
-  add_index "shots_sht", ["id_sht"], :name => "shotID", :unique => true
 
   create_table "users_usr", :primary_key => "id_usr", :force => true do |t|
     t.string  "username_usr", :limit => 50, :default => "",    :null => false
